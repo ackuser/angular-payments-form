@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4 text-center">
+  <div class="col-md-3 text-center">
     <h3>
       Purchase Transaction
       <br/>
@@ -15,14 +15,13 @@
       <br/>
       <p>
       </div>
-      <div class="col-md-4">
-        <div class="card-wrapper">
+        <div class="card-wrapper col-md-4">
         </div>
-      </div>
-      <div class="col-md-4 text-center">
-        <img src = "img/cards.jpg">
+      <div class="col-md-3">
+        <img src = "images/cards.jpg">
       </div>
     </div>
+  </div>
     <div class="row">
       <form name="userForm" ng-submit="submit()" class="active">
         <div id = "contact_info" class="col-xs-4 col-centered">
@@ -386,13 +385,14 @@
 </div>
 </div>
 </div>
+</div>
 <!-- bower:js -->
-<script src="../bower_components/intl-tel-input/build/js/intlTelInput.min.js"></script>
-<script src="../bower_components/international-phone-number/releases/international-phone-number.js"></script>
+<script src="bower_components/intl-tel-input/build/js/intlTelInput.min.js"></script>
+<script src="bower_components/international-phone-number/releases/international-phone-number.js"></script>
 <!-- Include the ngReCaptcha directive -->
-<script src="../bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
+<script src="bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
 <!-- endbower -->
-<script src="../bower_components/card/lib/js/card.js"></script>
+<script src="bower_components/card/lib/js/card.js"></script>
 <script>
 new Card({
   form: document.querySelector('form'),
