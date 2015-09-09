@@ -1,0 +1,405 @@
+<div class="row">
+  <div class="col-md-4 text-center">
+    <h3>
+      Purchase Transaction
+      <br/>
+      using Card
+    </h3>
+    <br/>
+    <p>
+      We only accept these cards
+      <br/>
+      Visa, Visa Debit UK, Visa Electron,
+      <br/>
+      MasterCard, MasterCard Debit, Maestro
+      <br/>
+      <p>
+      </div>
+      <div class="col-md-4">
+        <div class="card-wrapper">
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <img src = "img/cards.jpg">
+      </div>
+    </div>
+    <div class="row">
+      <form name="userForm" ng-submit="submit()" class="active">
+        <div id = "contact_info" class="col-xs-4 col-centered">
+          <h1>Contact Information</h1>
+          The fields marked with "<i class = "glyphicon glyphicon-asterisk"></i>" are required fields
+          <!-- First Name -->
+          <div class="form-group" ng-class="{ 'has-error' : userForm.firstname.$invalid && !userForm.firstname.$pristine}">
+            <label for = "InputLastname">First Name</label>
+            <div class = "input-group">
+              <input type="text" name="firstname" id = "InputLast" class="form-control" ng-model="user.firstname" placeholder = "Enter Last Name" required />
+              <span class = "input-group-addon">
+                <select name = "title" id = "InputTitle">
+                  <!--<option></option> -->
+                  <option selected = "selected">Mr</option>
+                  <option>Mrs</option>
+                  <option>Ms</option>
+                </select>
+                <i class = "glyphicon glyphicon-asterisk"></i>
+              </span>
+            </div>
+            <p ng-show="userForm.firstname.$invalid && !userForm.firstname.$pristine" role="alert" class="alert alert-danger"><span class="glyphicon glyphicon-exclamation-sign"></span> You First Name is required.</p>
+          </div>
+          <!-- Middle Name -->
+          <div class = "form-group">
+            <label for = "InputMiddle">Middle Name</label>
+            <div class = "input-group">
+              <input type = "text" class = "form-control" name = "middlename" id = "InputMiddle" placeholder = "Enter Middle Name" />
+              <span class = "input-group-addon"></span></div>
+            </div>
+            <!-- Last Name -->
+            <div class="form-group" ng-class="{ 'has-error' : userForm.lastname.$invalid && !userForm.lastname.$pristine}">
+              <label for = "InputLastname">Last Name</label>
+              <div class = "input-group">
+                <input type="text" name="lastname" id = "InputLast" class="form-control" ng-model="user.lastname" placeholder = "Enter Last Name" required />
+                <span class = "input-group-addon">
+                  <i class = "glyphicon glyphicon-asterisk"></i>
+                </span>
+              </div>
+              <p ng-show="userForm.lastname.$invalid && !userForm.lastname.$pristine" role="alert" class="alert alert-danger">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                You Last Name is required.
+              </p>
+            </div>
+            <div class = "form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine}">
+              <label for = "InputEmail">Your Email</label>
+              <div class = "input-group">
+                <input type = "email" class = "form-control" id = "InputEmail" name = "email" ng-model="user.email" placeholder = "Enter Email" required />
+                <span class = "input-group-addon">
+                  <i class = "glyphicon glyphicon-asterisk"></i>
+                </span>
+              </div>
+              <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" role="alert" class="alert alert-danger">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Enter a valid email address.
+              </p>
+            </div>
+            <div class = "form-group">
+              <label for = "InputCompany">Company Name</label>
+              <div class = "input-group">
+                <input type = "text" class = "form-control" name = "company" id = "InputCompany" placeholder = "Enter Company Name" />
+                <span class = "input-group-addon"></span>
+              </div>
+            </div>
+            <div class = "form-group">
+              <label for = "InputNumber">Phone Number</label>
+              <div class = "input-group">
+                <span class = "input-group-addon">
+                  <input type="tel" class = "form-control" international-phone-number default-country="gb" ng-model="phone" />
+                </span>
+              </div>
+            </div>
+          </div>
+          <div id="billing_details" class="col-xs-4">
+            <h1>Billing Details</h1>
+            <div class = "form-group">
+              <label for = "InputCountry">Country</label>
+              <div class = "input-group">
+                <select id = "country" name = "country" ng-controller="CountryCtl" ng-model="country" required>
+                  <option value="">-- Select a Country --</option>
+                  <option ng-repeat="country in countries" value="{{country.alpha-3}}">{{country.name}}</option>
+                </select>
+                <i class = "glyphicon glyphicon-asterisk"></i>
+              </div>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.county.$invalid && !userForm.county.$pristine}">
+              <label for="InputCounty">County</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="county" id="InputCounty" ng-model="user.county" placeholder="Enter County" required />
+                <span class="input-group-addon">
+                  <i class = "glyphicon glyphicon-asterisk"></i>
+                </span>
+              </div>
+              <p ng-show="userForm.county.$invalid && !userForm.county.$pristine" role="alert" class="alert alert-danger">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Your county cannot be empty.
+              </p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.city.$invalid && !userForm.city.$pristine}">
+              <label for="InputCity">City</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="city" id="InputCity" ng-model="user.city" placeholder="Enter City" required />
+                <span class="input-group-addon">
+                  <i class = "glyphicon glyphicon-asterisk"></i>
+                </span>
+              </div>
+              <p ng-show="userForm.city.$invalid && !userForm.city.$pristine" role="alert" class="alert alert-danger">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Your city cannot be empty.
+              </p>
+            </div>
+            <div class="form-group" ng-class="{ 'has-error' : userForm.address.$invalid && !userForm.address.$pristine}">
+              <label for="InputAddress">Address</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="address" id="InputAddress" ng-model="user.address" placeholder="Enter Address" required />
+                <span class="input-group-addon">
+                  <i class = "glyphicon glyphicon-asterisk"></i>
+                </span>
+              </div>
+              <p ng-show="userForm.address.$invalid && !userForm.address.$pristine" role="alert" class="alert alert-danger">
+                <span class="glyphicon glyphicon-exclamation-sign"></span>
+                Your address cannot be empty.
+              </p>
+            </div>
+            <div class="form-group">
+              <label for="InputPostcode">Post Code</label>
+              <div class="input-group">
+                <input type="text" class="form-control" name="postcode" id="InputPostcode" placeholder="Enter Post Code" />
+                <span class="input-group-addon"></span>
+              </div>
+            </div>
+          </div>
+          <br/>
+          <br/>
+          <div id="card_details" class="col-xs-4">
+            <h1>Card Info</h1>
+            <div class = "form-group">
+              <label for = "InputNumber">Card Number</label>
+              <div class = "input-group">
+                <input type = "text" class = "form-control credit_card_number" cc-number
+                name = "ccNumber" id = "cardNumber" ng-model="card.number"
+                placeholder = "Enter Your Credit Card number xxxx xxxx xxxx xxxx"
+                autocomplete="off" pattern="(\d{4}[ \-]?\d{4}[ \-]?\d{4}[ \-]?(\d{1}|\d{4}))" required />
+                <span class = "input-group-addon">
+                  <select id = "InputCardtype" name = "cardtype" required>
+                    <option value = "ELEC">Visa Electron</option>
+                    <option value = "VISAUK">Visa Debit UK</option>
+                    <option value = "VISA" selected>Visa</option>
+                    <option value = "MCRD">MasterCard</option>
+                    <option value = "MCDB">MasterCard Debit</option>
+                    <option value = "MSTO" >Maestro</option>
+                    <option value = "AMEX">American Express</option>
+                    <option value = "DINE">Diners</option>
+                  </select>
+                  <i class = "glyphicon glyphicon-asterisk"></i>
+                </span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col-xs-3">
+                <label for="cvc">CVC</label>
+                <div class = "input-group">
+                  <input type="text" class="form-control" id="cvc" cc-cvc cc-type="userForm.ccNumber.$ccType" name="ccCvc" ng-model="card.cvc" size="4" placeholder="CVC" maxlength="4" required />
+                  <span class = "input-group-addon">
+                    <i class = "glyphicon glyphicon-asterisk"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" cc-exp>
+              <label>Expiration Date</label>
+              <div class="input-group col-xs-4">
+                <input type="text" class="form-control" cc-exp-month name="ccExpMonth" ng-model="card.expiration.month" placeholder="MM" size="3" maxlength="2" required />
+                <span class="input-group-addon"> <strong>/</strong> </span>
+                <input type="text" class="form-control" cc-exp-year name="ccExpYear" ng-model="card.expiration.year" placeholder="YY" size="3" maxlength="2" required />
+                <span class = "input-group-addon">
+                  <i class = "glyphicon glyphicon-asterisk"></i>
+                </span>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Amount</label>
+              <div class="input-group col-xs-8">
+                <input type="numberInt" class="form-control" name="amount" min="10" max="999" size="6" maxlength="3" step="10" pattern="[0-9]+" id="InputAmountInt" placeholder="Price e.g 100" required />
+                <span class="input-group-addon"> <strong>.</strong> </span>
+                <input type="numberDec" class="form-control" name="amount" min="0" max="99" size="4" maxlength="2" step="1" pattern="[0-9]+" id="InputAmountDec" placeholder="DECIMAL" />
+                <span class="input-group-addon">
+                  <select id="InputCurrency" name="currency" required>
+                    <option value="USD">USD</option>
+                    <option value="EUR">EUR</option>
+                    <option value="GBP" selected>GBP</option>
+                  </select>
+                  <i class = "glyphicon glyphicon-asterisk"></i>
+                </span>
+              </div>
+            </div>
+            <div vc-recaptcha theme="'light'" key="model.key"
+            on-create="setWidgetId(widgetId)" on-success="setResponse(response)">
+          </div>
+          <div class="form-group">
+            <input type="submit" name="submit" id="submit" value="Submit" class="btn btn-info pull-right" />
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- =================================================================== -->
+  <!-- VALIDATION TABLES ================================================= -->
+  <!-- =================================================================== -->
+  <table class="table">
+    <tr>
+      <th>Valid Card?</th>
+      <th>Detection Card Type</th>
+    </tr>
+    <tr>
+      <td>
+        {{userForm.ccNumber.$valid | yesNo}}
+      </td>
+      <td>
+        {{userForm.ccNumber.$ccType || 'Unknown'}}
+      </td>
+    </tr>
+  </table>
+  <table class="table">
+    <tr>
+      <th>Valid CVC</th>
+    </tr>
+    <tr>
+      <td>
+        {{userForm.ccCvc.$valid | yesNo}}
+      </td>
+    </tr>
+  </table>
+  <table class="table">
+    <tr>
+      <th>Valid Month?</th>
+      <th>Valid Year?</th>
+    </tr>
+    <tr>
+      <td>
+        {{userForm.ccExpMonth.$valid | yesNo}}
+      </td>
+      <td>
+        {{userForm.ccExpYear.$valid | yesNo}}
+      </td>
+    </tr>
+  </table>
+  <div class="row">
+    <div class="col-xs-3">
+      <h3>Form</h3>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td ng-class="{ success: userForm.$valid, danger: userForm.$invalid }">Valid</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.$pristine, danger: !userForm.$pristine }">Pristine</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.$dirty }">Dirty</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-3">
+      <h3>Name</h3>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td ng-class="{ success: userForm.firstname.$valid, danger: userForm.firstname.$invalid }">Valid</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.firstname.$pristine, danger: !userForm.firstname.$pristine }">Pristine</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.firstname.$dirty }">Dirty</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-3">
+      <h3>Username</h3>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td ng-class="{ success: userForm.lastname.$valid, danger: userForm.lastname.$invalid }">Valid</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.lastname.$pristine, danger: !userForm.lastname.$pristine }">Pristine</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.lastname.$dirty }">Dirty</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-3">
+      <h3>Email</h3>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td ng-class="{ success: userForm.email.$valid, danger: userForm.email.$invalid }">Valid</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.email.$pristine, danger: !userForm.email.$pristine }">Pristine</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.email.$dirty }">Dirty</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-3">
+      <h3>County</h3>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td ng-class="{ success: userForm.county.$valid, danger: userForm.county.$invalid }">Valid</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.county.$pristine, danger: !userForm.county.$pristine }">Pristine</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.county.$dirty }">Dirty</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-3">
+      <h3>City</h3>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td ng-class="{ success: userForm.city.$valid, danger: userForm.city.$invalid }">Valid</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.city.$pristine, danger: !userForm.city.$pristine }">Pristine</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.city.$dirty }">Dirty</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-xs-3">
+      <h3>Address</h3>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td ng-class="{ success: userForm.address.$valid, danger: userForm.address.$invalid }">Valid</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.address.$pristine, danger: !userForm.address.$pristine }">Pristine</td>
+          </tr>
+          <tr>
+            <td ng-class="{ success: userForm.address.$dirty }">Dirty</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+<!-- bower:js -->
+<script src="../bower_components/intl-tel-input/build/js/intlTelInput.min.js"></script>
+<script src="../bower_components/international-phone-number/releases/international-phone-number.js"></script>
+<!-- Include the ngReCaptcha directive -->
+<script src="../bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
+<!-- endbower -->
+<script src="../bower_components/card/lib/js/card.js"></script>
+<script>
+new Card({
+  form: document.querySelector('form'),
+  container: '.card-wrapper',
+  nameInput: 'input[name = "firstname"], input[name = "middlename"], input[name = "lastname"]',
+  expiryInput: 'input[name = "ccExpMonth"], input[name = "ccExpYear"]',
+  cvcInput: 'input[name = "ccCvc"]',
+  numberInput: 'input[name = "ccNumber"]',
+});
+</script>
