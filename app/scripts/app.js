@@ -29,11 +29,6 @@ angular
         controller: 'AboutCtrl',
         controllerAs: 'about'
       })
-      .when('/payments', {
-        templateUrl: 'views/payments.html',
-        controller: 'PaymentsCtrl',
-        controllerAs: 'payments'
-      })
       .when('/payment', {
         templateUrl: 'views/payment.html',
         controller: 'PaymentCtrl',
