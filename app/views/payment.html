@@ -161,7 +161,7 @@
               <div class = "input-group">
                 <input type = "text" class = "form-control credit_card_number" cc-number
                 name = "ccNumber" id = "cardNumber" ng-model="card.number"
-                placeholder = "Enter Your Credit Card number xxxx xxxx xxxx xxxx"
+                placeholder = "Enter Your Credit Card number"
                 autocomplete="off" pattern="(\d{4}[ \-]?\d{4}[ \-]?\d{4}[ \-]?(\d{1}|\d{4}))" required />
                 <span class = "input-group-addon">
                   <select id = "InputCardtype" name = "cardtype" required>
@@ -182,7 +182,7 @@
               <div class="col-xs-3">
                 <label for="cvc">CVC</label>
                 <div class = "input-group">
-                  <input type="text" class="form-control" id="cvc" cc-cvc cc-type="userForm.ccNumber.$ccType" name="ccCvc" ng-model="card.cvc" size="4" placeholder="CVC" maxlength="4" required />
+                  <input type="text" class="form-control" id="cvc" cc-cvc cc-type="userForm.ccNumber.$ccType"  style="width: 66px;" name="ccCvc" ng-model="card.cvc" size="4" placeholder="CVC" maxlength="4" required />
                   <span class = "input-group-addon">
                     <i class = "glyphicon glyphicon-asterisk"></i>
                   </span>
@@ -192,9 +192,9 @@
             <div class="form-group" cc-exp>
               <label>Expiration Date</label>
               <div class="input-group col-xs-4">
-                <input type="text" class="form-control" cc-exp-month name="ccExpMonth" ng-model="card.expiration.month" placeholder="MM" size="3" maxlength="2" required />
+                <input type="text" class="form-control" cc-exp-month name="ccExpMonth" ng-model="card.expiration.month" placeholder="MM" size="3" maxlength="2" style="width: 66px;" required />
                 <span class="input-group-addon"> <strong>/</strong> </span>
-                <input type="text" class="form-control" cc-exp-year name="ccExpYear" ng-model="card.expiration.year" placeholder="YY" size="3" maxlength="2" required />
+                <input type="text" class="form-control" cc-exp-year name="ccExpYear" ng-model="card.expiration.year" placeholder="YY" size="3" maxlength="2" style="width: 66px;" required />
                 <span class = "input-group-addon">
                   <i class = "glyphicon glyphicon-asterisk"></i>
                 </span>
@@ -203,9 +203,9 @@
             <div class="form-group">
               <label>Amount</label>
               <div class="input-group col-xs-6">
-                <input type="numberInt" class="form-control" name="amount" min="10" max="999" size="6" maxlength="3" step="10" pattern="[0-9]+" id="InputAmountInt" placeholder="Price e.g 100" required />
+                <input type="numberInt" class="form-control" name="amount" min="10" max="999" size="6" maxlength="3" style="width: 86px;" step="10" pattern="[0-9]+" id="InputAmountInt" placeholder="Price e.g 100" required />
                 <span class="input-group-addon"> <strong>.</strong> </span>
-                <input type="numberDec" class="form-control" name="amount" min="0" max="99" size="4" maxlength="2" step="1" pattern="[0-9]+" id="InputAmountDec" placeholder="DECIMAL" />
+                <input type="numberDec" class="form-control" name="amount" min="0" max="99" size="4" maxlength="2" style="width: 86px;" step="1" pattern="[0-9]+" id="InputAmountDec" placeholder="DECIMAL" />
                 <span class="input-group-addon">
                   <select id="InputCurrency" name="currency" required>
                     <option value="USD">USD</option>

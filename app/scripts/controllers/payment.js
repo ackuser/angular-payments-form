@@ -1,5 +1,4 @@
 'use strict';
-
 /**
  * @ngdoc function
  * @name angularPaymentsApp.controller:PaymentCtrl
@@ -25,7 +24,7 @@ alert("Cannot load availables countries");
    $scope.widgetId = null;
 
    $scope.model = {
-       key: 'YOUR KEY'
+       key: '6LeHRgUTAAAAAN2wiqwiTnE6LzF0iwkMIdEjeqAZ'
    };
 
    $scope.setResponse = function (response) {

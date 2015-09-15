@@ -15,7 +15,10 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'vcRecaptcha',
+    'internationalPhoneNumber'
+    //'Card'
   ])
   .config(function ($routeProvider) {
     $routeProvider

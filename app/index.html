@@ -11,6 +11,7 @@
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="bower_components/intl-tel-input/build/css/intlTelInput.css" />
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
@@ -32,7 +33,7 @@
               <span class="icon-bar"></span>
             </button>
 
-            <a class="navbar-brand" href="#/">angularPayments</a>
+            <a class="navbar-brand" href="#/payment">angularPayments</a>
           </div>
 
           <div class="collapse navbar-collapse" id="js-navbar-collapse">
@@ -70,6 +71,11 @@
        ga('send', 'pageview');
     </script>
 
+    <script
+    src="https://www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit"
+    async defer
+    ></script>
+
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -81,6 +87,9 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
+    <script src="bower_components/angular-recaptcha/release/angular-recaptcha.min.js"></script>
+    <script src="bower_components/intl-tel-input/build/js/intlTelInput.min.js"></script>
+    <script src="bower_components/international-phone-number/releases/international-phone-number.min.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
